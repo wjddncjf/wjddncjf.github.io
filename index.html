@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="개인 소개 및 포트폴리오 페이지">
+  <title>나의 소개 | Portfolio</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b1020;--panel:#151d32;--text:#f3f6ff;--muted:#acb8d0;--accent:#9b8cff;--line:#2a3551}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 85% 0%,#26305c 0%,transparent 40%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,'Noto Sans KR',sans-serif;line-height:1.7}a{color:inherit;text-decoration:none}a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}.wrap{width:min(1060px,calc(100% - 40px));margin:auto}header{border-bottom:1px solid var(--line)}nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:76px}.logo{font-size:1.2rem;font-weight:800;letter-spacing:.04em}.logo span{color:var(--accent)}.links{display:flex;gap:24px;flex-wrap:wrap}.links a{font-size:.95rem;color:var(--muted)}.links a:hover{color:#fff}.hero{padding:110px 0 100px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:40px}.eyebrow{font-weight:700;color:var(--accent);letter-spacing:.14em}.hero h1{font-size:clamp(2.6rem,6vw,5rem);line-height:1.16;letter-spacing:-.05em;margin:16px 0}.hero h1 strong{color:var(--accent)}.hero p{max-width:580px;color:var(--muted);font-size:1.1rem}.avatar{width:230px;aspect-ratio:1;border-radius:38%;display:grid;place-items:center;background:linear-gradient(135deg,#8176f7,#47c3da);font-size:6rem;box-shadow:0 20px 80px #6257ec40}.btn{display:inline-block;margin-top:22px;padding:12px 23px;border-radius:12px;background:var(--accent);color:#101327;font-weight:800}.btn:hover{filter:brightness(1.1)}section{padding:55px 0}h2{font-size:clamp(1.7rem,4vw,2.3rem);letter-spacing:-.04em;margin:0 0 22px}.section-desc{color:var(--muted);margin-top:-10px;margin-bottom:24px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.card{padding:26px;border:1px solid var(--line);border-radius:20px;background:var(--panel)}.card h3{margin:0 0 10px}.card p{margin:0;color:var(--muted)}.tags{display:flex;gap:10px;flex-wrap:wrap}.tag{padding:9px 15px;border-radius:999px;background:#242c49;border:1px solid #39466c;color:#e3e7ff}.contact{background:linear-gradient(120deg,#242b51,#1a2746);border-radius:24px;padding:36px}.contact p{color:var(--muted)}footer{padding:38px 0 45px;text-align:center;color:var(--muted);font-size:.9rem}@media(max-width:700px){nav{padding:15px 0;align-items:flex-start;flex-direction:column}.links{gap:16px}.hero{padding:68px 0 55px;grid-template-columns:1fr}.avatar{grid-row:1;width:140px;font-size:4rem}.grid{grid-template-columns:1fr}section{padding:38px 0}.contact{padding:25px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <header><nav class="wrap" aria-label="주 메뉴"><a class="logo" href="#home">MY<span>PROFILE.</span></a><div class="links"><a href="#about">소개</a><a href="#work">활동</a><a href="#skills">관심 분야</a><a href="#contact">연락처</a></div></nav></header>
+  <main>
+    <div class="wrap"><section class="hero" id="home"><div><div class="eyebrow">HELLO, NICE TO MEET YOU</div><h1>안녕하세요,<br><strong>홍길동</strong>입니다.</h1><p>새로운 것을 배우고, 아이디어를 현실로 만드는 과정을 좋아합니다. 이 공간에서 저의 이야기와 활동을 소개합니다.</p><a class="btn" href="#about">저에 대해 알아보기 →</a></div><div class="avatar" role="img" aria-label="프로필을 나타내는 손 흔드는 이모지">👋</div></section></div>
+    <div class="wrap"><section id="about"><h2>저를 소개합니다</h2><p class="section-desc">작은 호기심을 의미 있는 경험으로 이어갑니다.</p><div class="card"><p>안녕하세요! 저는 배움과 도전을 즐기는 사람입니다. 다양한 사람들과 소통하며 문제를 해결하고, 꾸준히 성장하는 것을 중요하게 생각합니다.<br><br>이 문장은 예시입니다. 본인의 소개 문구로 자유롭게 수정해 주세요.</p></div></section>
+    <section id="work"><h2>경험과 활동</h2><p class="section-desc">제가 관심을 갖고 진행해 온 일들입니다.</p><div class="grid"><article class="card"><h3>🚀 프로젝트</h3><p>직접 기획하고 만들어 본 프로젝트를 소개하는 공간입니다.</p></article><article class="card"><h3>🤝 협업 경험</h3><p>함께 일하며 배우고 성장한 경험을 적어 보세요.</p></article><article class="card"><h3>📚 배움과 성장</h3><p>새롭게 배우는 기술과 지식, 앞으로의 목표를 소개해 보세요.</p></article></div></section>
+    <section id="skills"><h2>관심 분야</h2><p class="section-desc">좋아하거나 배우고 있는 주제들입니다.</p><div class="tags"><span class="tag">웹 개발</span><span class="tag">디자인</span><span class="tag">콘텐츠 제작</span><span class="tag">문제 해결</span><span class="tag">새로운 기술</span></div></section>
+    <section id="contact"><div class="contact"><h2>함께 이야기해요!</h2><p>협업 제안이나 가벼운 인사도 환영합니다.<br>아래 이메일 주소를 실제 연락처로 변경해 주세요.</p><a class="btn" href="mailto:hello@example.com">이메일 보내기 ✉</a></div></section></div>
+  </main>
+  <footer class="wrap">© <span id="year"></span> 홍길동. All rights reserved.</footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
