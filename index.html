@@ -3,142 +3,1178 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="정우철의 포트폴리오와 파이썬·네트워크 학습 기록">
+
+  <meta name="description"
+        content="파이썬과 네트워크를 배우고 있는 정우철의 개인 포트폴리오 및 학습 기록 공간입니다.">
+
   <title>정우철 | 배움의 기록</title>
+
   <style>
-    :root { --blue:#2563eb; --blue-dark:#1d4ed8; --ink:#17243b; --muted:#56657b; --line:#dbe5f2; --surface:#fff; --soft:#f4f7fb; }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; scroll-padding-top:90px; }
-    body { margin:0; font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; color:var(--ink); background:#fff; line-height:1.75; overflow-wrap:break-word; }
-    a { color:inherit; text-decoration:none; }
-    .container { width:min(1080px, calc(100% - 40px)); margin:0 auto; }
-    header { position:sticky; top:0; z-index:20; background:rgba(255,255,255,.96); border-bottom:1px solid var(--line); backdrop-filter:blur(12px); }
-    .nav { min-height:72px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
-    .brand { font-size:1.08rem; font-weight:800; letter-spacing:-.04em; color:var(--blue-dark); white-space:nowrap; }
-    .menu { display:flex; align-items:center; justify-content:flex-end; flex-wrap:wrap; gap:clamp(12px,3vw,32px); }
-    .menu a { font-size:.94rem; font-weight:650; color:#43516a; transition:color .2s; }
-    .menu a:hover, .menu a:focus-visible { color:var(--blue); }
-    section { padding:100px 0; scroll-margin-top:72px; }
-    .eyebrow { color:var(--blue); font-size:.83rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; margin:0 0 12px; }
-    h1,h2,h3,p { margin-top:0; }
-    h1 { font-size:clamp(2.1rem,5vw,3.8rem); line-height:1.25; letter-spacing:-.055em; margin-bottom:26px; }
-    h2 { font-size:clamp(1.7rem,3.5vw,2.35rem); letter-spacing:-.045em; line-height:1.3; margin-bottom:16px; }
-    h3 { font-size:1.2rem; letter-spacing:-.025em; line-height:1.4; margin-bottom:12px; }
-    .lead { font-size:clamp(1rem,2vw,1.17rem); color:var(--muted); max-width:690px; }
-    .intro { background:linear-gradient(135deg,#f1f7ff 0%,#fff 72%); padding:128px 0 116px; }
-    .intro h1 span { color:var(--blue); }
-    .intro .tag { display:inline-block; margin-top:20px; padding:8px 15px; border-radius:999px; background:#e5efff; color:#1e54bd; font-size:.87rem; font-weight:700; }
-    .section-desc { color:var(--muted); margin-bottom:44px; }
-    .timeline { position:relative; margin:0 0 0 10px; padding-left:38px; border-left:3px solid var(--blue); }
-    .timeline-item { position:relative; padding:0 0 42px; }
-    .timeline-item:last-child { padding-bottom:0; }
-    .timeline-item::before { content:""; position:absolute; left:-48px; top:7px; width:17px; height:17px; background:var(--blue); border:4px solid #fff; border-radius:50%; box-shadow:0 0 0 2px var(--blue); }
-    .timeline-card { padding:24px 28px; background:var(--surface); border:1px solid var(--line); border-radius:16px; box-shadow:0 8px 30px rgba(26,64,117,.05); }
-    .timeline-head { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:10px; }
-    .timeline-head h3 { margin:0; }
-    .badge { display:inline-block; border-radius:999px; padding:3px 11px; font-size:.78rem; font-weight:800; background:#e7f0ff; color:#1e55bf; }
-    .badge.planned { background:#eef1f5; color:#64748b; }
-    ul { margin:10px 0 0; padding-left:20px; color:var(--muted); }
-    li + li { margin-top:5px; }
-    .interests { background:#f8fbff; }
-    .cards { display:flex; gap:22px; align-items:stretch; }
-    .card { flex:1 1 0; min-width:0; padding:28px 24px; border:1px solid var(--line); border-top:6px solid var(--blue); border-radius:14px; background:#fff; box-shadow:0 10px 28px rgba(26,64,117,.045); }
-    .card:nth-child(2) { border-top-color:#3b82f6; }
-    .card:nth-child(3) { border-top-color:#60a5fa; }
-    .card p { color:var(--muted); margin:0; }
-    .contact { background:#f1f4f8; text-align:center; }
-    .contact p { color:var(--muted); margin:0 auto 28px; }
-    .actions { display:flex; justify-content:center; flex-wrap:wrap; gap:12px; }
-    .button { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:12px 24px; border-radius:10px; font-weight:750; transition:transform .2s,background .2s,box-shadow .2s; }
-    .button:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(20,60,120,.12); }
-    .button-primary { background:var(--blue); color:white; }
-    .button-primary:hover { background:var(--blue-dark); }
-    .button-secondary { background:white; color:var(--blue-dark); border:1px solid #cbdcf8; }
-    footer { padding:26px 0; text-align:center; font-size:.85rem; color:#7b8799; }
-    :focus-visible { outline:3px solid #93c5fd; outline-offset:4px; }
-    @media (max-width:720px) {
-      .nav { padding:15px 0; align-items:flex-start; flex-direction:column; gap:10px; }
-      .menu { width:100%; justify-content:space-between; gap:8px; }
-      .menu a { font-size:.85rem; }
-      section { padding:72px 0; scroll-margin-top:115px; }
-      html { scroll-padding-top:115px; }
-      .intro { padding:86px 0 78px; }
-      .cards { flex-direction:column; }
-      .timeline { padding-left:27px; }
-      .timeline-item::before { left:-37px; }
-      .timeline-card { padding:20px; }
+    /* ========================================
+       1. 기본 설정
+    ======================================== */
+
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-light: #eff6ff;
+
+      --text: #1e293b;
+      --text-light: #64748b;
+
+      --background: #ffffff;
+      --background-soft: #f8fafc;
+
+      --border: #e2e8f0;
+
+      --success: #16a34a;
+      --success-bg: #dcfce7;
+
+      --progress: #2563eb;
+      --progress-bg: #dbeafe;
+
+      --planned: #64748b;
+      --planned-bg: #f1f5f9;
+
+      --radius: 16px;
+      --shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
     }
-    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .button { transition:none; } }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family:
+        "Pretendard",
+        "Noto Sans KR",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.8;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 100px 0;
+      scroll-margin-top: 70px;
+    }
+
+    .section-header {
+      margin-bottom: 45px;
+    }
+
+    .section-label {
+      display: inline-block;
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+    }
+
+    .section-description {
+      color: var(--text-light);
+      font-size: 1rem;
+    }
+
+    /* ========================================
+       2. 상단 네비게이션
+    ======================================== */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 76px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-light);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* ========================================
+       3. 메인 소개
+    ======================================== */
+
+    .hero {
+      background:
+        linear-gradient(
+          135deg,
+          #eff6ff 0%,
+          #ffffff 65%,
+          #f8fafc 100%
+        );
+
+      padding: 130px 0 120px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+
+      background: var(--primary-light);
+      color: var(--primary);
+
+      padding: 8px 16px;
+      border-radius: 100px;
+
+      font-size: 0.85rem;
+      font-weight: 700;
+
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 5vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -2px;
+      line-height: 1.35;
+
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero-description {
+      font-size: 1.15rem;
+      color: var(--text-light);
+
+      max-width: 680px;
+      margin-bottom: 32px;
+    }
+
+    .hero-education {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      background: white;
+      border: 1px solid var(--border);
+
+      padding: 12px 18px;
+      border-radius: 12px;
+
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .hero-education::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+
+      background: var(--success);
+      border-radius: 50%;
+
+      flex-shrink: 0;
+    }
+
+    /* ========================================
+       4. 배움의 기록 - 타임라인
+    ======================================== */
+
+    .activity-section {
+      background: var(--background);
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 40px;
+      margin-top: 40px;
+    }
+
+    .timeline::before {
+      content: "";
+
+      position: absolute;
+      left: 10px;
+      top: 12px;
+      bottom: 20px;
+
+      width: 3px;
+      background: #bfdbfe;
+      border-radius: 10px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 35px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: "";
+
+      position: absolute;
+      left: -38px;
+      top: 27px;
+
+      width: 15px;
+      height: 15px;
+
+      background: var(--primary);
+      border: 4px solid white;
+
+      border-radius: 50%;
+
+      box-shadow: 0 0 0 3px #bfdbfe;
+      z-index: 1;
+    }
+
+    .timeline-card {
+      background: white;
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+
+      padding: 30px;
+
+      box-shadow: var(--shadow);
+      transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+    }
+
+    .timeline-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+    }
+
+    .timeline-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 12px;
+
+      margin-bottom: 15px;
+    }
+
+    .timeline-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+    }
+
+    .status {
+      display: inline-block;
+
+      padding: 5px 12px;
+      border-radius: 100px;
+
+      font-size: 0.8rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .status.progress {
+      background: var(--progress-bg);
+      color: var(--progress);
+    }
+
+    .status.planned {
+      background: var(--planned-bg);
+      color: var(--planned);
+    }
+
+    .status.completed {
+      background: var(--success-bg);
+      color: var(--success);
+    }
+
+    .timeline-description {
+      color: var(--text-light);
+      margin-bottom: 18px;
+    }
+
+    .learning-list {
+      padding-left: 22px;
+      margin-bottom: 20px;
+    }
+
+    .learning-list li {
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .learning-note {
+      background: var(--background-soft);
+
+      border-left: 3px solid var(--primary);
+      border-radius: 0 8px 8px 0;
+
+      padding: 16px 20px;
+      margin-top: 20px;
+    }
+
+    .learning-note strong {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .learning-note p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    .timeline-guide {
+      margin-top: 35px;
+
+      background: var(--primary-light);
+      border-radius: 12px;
+
+      padding: 20px 24px;
+    }
+
+    .timeline-guide h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: var(--primary-dark);
+    }
+
+    .timeline-guide p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    /* ========================================
+       5. 관심 분야 - 카드
+    ======================================== */
+
+    .interests-section {
+      background: var(--background-soft);
+    }
+
+    .interest-grid {
+      display: flex;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .interest-card {
+      flex: 1;
+      min-width: 0;
+
+      background: white;
+
+      border: 1px solid var(--border);
+      border-top: 5px solid var(--primary);
+
+      border-radius: var(--radius);
+      padding: 32px 28px;
+
+      box-shadow: var(--shadow);
+
+      transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+    }
+
+    .interest-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+    }
+
+    .interest-icon {
+      width: 54px;
+      height: 54px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: var(--primary-light);
+      border-radius: 14px;
+
+      font-size: 1.6rem;
+      margin-bottom: 24px;
+    }
+
+    .interest-card h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .interest-card p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    /* ========================================
+       6. Email - 소통
+    ======================================== */
+
+    .contact-section {
+      background: #f1f5f9;
+      text-align: center;
+    }
+
+    .contact-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .contact-content h2 {
+      font-size: clamp(1.9rem, 4vw, 2.5rem);
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .contact-content p {
+      color: var(--text-light);
+      font-size: 1.05rem;
+      margin-bottom: 35px;
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 50px;
+      padding: 13px 25px;
+
+      border-radius: 10px;
+
+      font-size: 0.95rem;
+      font-weight: 700;
+
+      transition:
+        transform 0.2s,
+        background 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-outline {
+      background: white;
+      color: var(--text);
+
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      background: #e2e8f0;
+    }
+
+    /* ========================================
+       7. 푸터
+    ======================================== */
+
+    footer {
+      background: white;
+      border-top: 1px solid var(--border);
+
+      padding: 28px 20px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    /* ========================================
+       8. 반응형 디자인
+    ======================================== */
+
+    @media (max-width: 768px) {
+
+      .navbar {
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+
+        padding: 16px 0;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 22px;
+      }
+
+      .nav-links a {
+        font-size: 0.85rem;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .hero {
+        padding: 90px 0;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+      }
+
+      .timeline {
+        padding-left: 30px;
+      }
+
+      .timeline::before {
+        left: 7px;
+      }
+
+      .timeline-item::before {
+        left: -29px;
+      }
+
+      .timeline-card {
+        padding: 24px 20px;
+      }
+
+      .interest-grid {
+        flex-direction: column;
+      }
+
+      .interest-card {
+        width: 100%;
+      }
+
+      .contact-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .container {
+        width: calc(100% - 28px);
+      }
+
+      .nav-links {
+        gap: 8px 14px;
+      }
+
+      .timeline-card {
+        padding: 20px 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
+
   </style>
 </head>
+
 <body>
+
+  <!-- =====================================
+       상단 네비게이션
+  ====================================== -->
+
   <header>
-    <nav class="nav container" aria-label="주 메뉴">
-      <a class="brand" href="#about">WOOCHUL.LOG</a>
-      <div class="menu">
-        <a href="#about">소개</a>
-        <a href="#activity">배움의 기록</a>
-        <a href="#interests">관심</a>
-        <a href="#contact">Email</a>
-      </div>
+    <nav class="navbar container" aria-label="주 메뉴">
+
+      <a href="#about" class="logo">
+        WOOCHUL.DEV
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about">소개</a></li>
+        <li><a href="#activity">배움의 기록</a></li>
+        <li><a href="#interests">관심</a></li>
+        <li><a href="#contact">Email</a></li>
+      </ul>
+
     </nav>
   </header>
+
+
   <main>
-    <section id="about" class="intro">
+
+    <!-- =====================================
+         1. 소개
+    ====================================== -->
+
+    <section id="about" class="hero">
+
       <div class="container">
-        <p class="eyebrow">About Me</p>
-        <h1>안녕하세요,<br><span>정우철 입니다.</span></h1>
-        <p class="lead">파이썬과 네트워크를 배우고 있습니다. 제 배움의 과정들을 담아보는 공간입니다.</p>
-        <p class="lead">현재 <strong>SKT Aleph 교육 과정</strong>을 수강하며 기초를 탄탄히 다지고, 배운 내용을 꾸준히 기록하고 있습니다.</p>
-        <span class="tag">배우고 · 기록하고 · 성장하기</span>
+
+        <div class="hero-content">
+
+          <span class="hero-badge">
+            PERSONAL PORTFOLIO
+          </span>
+
+          <h1>
+            안녕하세요,<br>
+            <span>정우철</span> 입니다.
+          </h1>
+
+          <p class="hero-description">
+            파이썬과 네트워크를 배우고 있습니다.
+            제 배움의 과정들을 담아보는 공간입니다.
+          </p>
+
+          <p class="hero-description">
+            새로운 기술을 이해하고 직접 적용해 보는 과정에
+            관심이 있습니다.
+
+            이곳에서는 제가 배우고 있는 내용과
+            관심 분야, 그리고 성장의 과정을 기록합니다.
+          </p>
+
+          <div class="hero-education">
+            현재 SKT Aleph 교육 과정 수강 중
+          </div>
+
+        </div>
+
       </div>
+
     </section>
-    <section id="activity">
+
+
+    <!-- =====================================
+         2. 배움의 기록
+
+         ★ 학습 기록 수정 방법 ★
+
+         GitHub에서 index.html을 열고
+         아래 timeline-item 부분을 수정하세요.
+
+         상태 종류:
+
+         progress  = 학습 중
+         planned   = 학습 예정
+         completed = 학습 완료
+
+         새로운 기록을 추가하려면
+         timeline-item 전체를 복사하여
+         아래에 붙여넣으면 됩니다.
+    ====================================== -->
+
+    <section id="activity" class="activity-section">
+
       <div class="container">
-        <p class="eyebrow">Learning Journey</p>
-        <h2>배움의 기록</h2>
-        <p class="section-desc">작은 개념부터 하나씩 이해하며 쌓아가는 학습 타임라인입니다.</p>
+
+        <div class="section-header">
+
+          <span class="section-label">
+            LEARNING JOURNEY
+          </span>
+
+          <h2 class="section-title">
+            배움의 기록
+          </h2>
+
+          <p class="section-description">
+            배우고, 실습하고, 이해한 내용을 기록합니다.
+            작은 배움이 쌓여 성장하는 과정을 남기고 싶습니다.
+          </p>
+
+        </div>
+
+
         <div class="timeline">
-          <article class="timeline-item"><div class="timeline-card">
-            <div class="timeline-head"><h3>파이썬 기초</h3><span class="badge">학습 중</span></div>
-            <ul><li>변수, 자료형, 조건문과 반복문 이해</li><li>함수와 자료구조를 활용한 문제 해결</li><li>간단한 자동화 스크립트 작성 연습</li></ul>
-          </div></article>
-          <article class="timeline-item"><div class="timeline-card">
-            <div class="timeline-head"><h3>네트워크 기초</h3><span class="badge">학습 중</span></div>
-            <ul><li>OSI 7계층과 TCP/IP 모델 이해</li><li>IP 주소, 서브넷, 라우팅 기초 학습</li><li>DNS, HTTP 등 주요 프로토콜 살펴보기</li></ul>
-          </div></article>
-          <article class="timeline-item"><div class="timeline-card">
-            <div class="timeline-head"><h3>네트워크 보안</h3><span class="badge planned">예정</span></div>
-            <ul><li>방화벽과 접근 제어의 기본 개념</li><li>암호화와 안전한 통신 방식 이해</li><li>네트워크 위협 및 보안 대응 기초 학습</li></ul>
-          </div></article>
+
+
+          <!-- ==========================
+               학습 기록 1 : 파이썬
+          =========================== -->
+
+          <article class="timeline-item">
+
+            <div class="timeline-card">
+
+              <div class="timeline-heading">
+
+                <h3 class="timeline-title">
+                  파이썬 기초
+                </h3>
+
+                <span class="status progress">
+                  학습 중
+                </span>
+
+              </div>
+
+              <p class="timeline-description">
+                프로그래밍의 기본 개념을 이해하고
+                파이썬을 활용한 문제 해결 능력을
+                키우는 과정입니다.
+              </p>
+
+              <ul class="learning-list">
+                <li>변수와 자료형</li>
+                <li>조건문과 반복문</li>
+                <li>리스트와 딕셔너리</li>
+                <li>함수와 모듈</li>
+                <li>기초 문제 해결 및 실습</li>
+              </ul>
+
+              <div class="learning-note">
+
+                <strong>
+                  📝 배움과 기록
+                </strong>
+
+                <p>
+                  학습하면서 새롭게 이해한 개념이나
+                  직접 해결한 문제를 이곳에 기록할 예정입니다.
+                </p>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- ==========================
+               학습 기록 2 : 네트워크
+          =========================== -->
+
+          <article class="timeline-item">
+
+            <div class="timeline-card">
+
+              <div class="timeline-heading">
+
+                <h3 class="timeline-title">
+                  네트워크 기초
+                </h3>
+
+                <span class="status planned">
+                  학습 예정
+                </span>
+
+              </div>
+
+              <p class="timeline-description">
+                컴퓨터 네트워크의 동작 원리를 이해하고
+                데이터가 전달되는 과정을 학습합니다.
+              </p>
+
+              <ul class="learning-list">
+                <li>OSI 7계층</li>
+                <li>TCP/IP 프로토콜</li>
+                <li>IP 주소와 서브넷</li>
+                <li>라우팅과 스위칭</li>
+                <li>기초 네트워크 구성 실습</li>
+              </ul>
+
+              <div class="learning-note">
+
+                <strong>
+                  📝 배움과 기록
+                </strong>
+
+                <p>
+                  학습을 시작하면 이해한 개념과
+                  실습 경험을 기록할 예정입니다.
+                </p>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- ==========================
+               학습 기록 3 : 네트워크 보안
+          =========================== -->
+
+          <article class="timeline-item">
+
+            <div class="timeline-card">
+
+              <div class="timeline-heading">
+
+                <h3 class="timeline-title">
+                  네트워크 보안
+                </h3>
+
+                <span class="status planned">
+                  학습 예정
+                </span>
+
+              </div>
+
+              <p class="timeline-description">
+                안전한 네트워크 환경을 구성하기 위한
+                보안 개념과 기술을 학습합니다.
+              </p>
+
+              <ul class="learning-list">
+                <li>네트워크 보안의 기본 개념</li>
+                <li>방화벽과 접근 제어</li>
+                <li>네트워크 위협과 대응</li>
+                <li>제로 트러스트 보안 모델</li>
+                <li>기초 보안 실습</li>
+              </ul>
+
+              <div class="learning-note">
+
+                <strong>
+                  📝 배움과 기록
+                </strong>
+
+                <p>
+                  보안 기술을 학습하며 이해한 내용과
+                  실습 과정에서 얻은 경험을 기록할 예정입니다.
+                </p>
+
+              </div>
+
+            </div>
+
+          </article>
+
         </div>
+
+
+        <!-- 학습 상태 안내 -->
+
+        <div class="timeline-guide">
+
+          <h3>
+            📌 학습 상태 안내
+          </h3>
+
+          <p>
+            🔵 학습 중 : 현재 공부하거나 실습하고 있는 주제
+            <br>
+
+            🟢 학습 완료 : 정한 학습 목표를 달성한 주제
+            <br>
+
+            ⚪ 학습 예정 : 앞으로 공부할 계획인 주제
+          </p>
+
+        </div>
+
       </div>
+
     </section>
-    <section id="interests" class="interests">
+
+
+    <!-- =====================================
+         3. 관심 분야
+    ====================================== -->
+
+    <section id="interests" class="interests-section">
+
       <div class="container">
-        <p class="eyebrow">Interests</p>
-        <h2>관심</h2>
-        <p class="section-desc">지금 배우는 기술과 앞으로 더 깊이 탐구하고 싶은 주제입니다.</p>
-        <div class="cards">
-          <article class="card"><h3>AI 자동화</h3><p>반복되는 작업을 더 빠르고 정확하게 처리하는 방법에 관심이 있습니다. AI와 파이썬을 연결해 일상 속 작은 불편을 해결해 보고 싶습니다.</p></article>
-          <article class="card"><h3>제로 트러스트(ZT)</h3><p>어떤 접근도 당연하게 신뢰하지 않는 보안 원칙이 흥미롭습니다. 네트워크를 공부하며 안전한 시스템을 설계하는 관점을 키우고 싶습니다.</p></article>
-          <article class="card"><h3>컴퓨팅 사고</h3><p>복잡한 문제를 작은 단위로 나누고 논리적으로 해결하는 과정에 매력을 느낍니다. 기술을 익히는 데 그치지 않고 문제 해결력을 기르고 싶습니다.</p></article>
+
+        <div class="section-header">
+
+          <span class="section-label">
+            MY INTERESTS
+          </span>
+
+          <h2 class="section-title">
+            관심
+          </h2>
+
+          <p class="section-description">
+            기술을 배우면서 특히 흥미를 느끼는 분야들입니다.
+          </p>
+
         </div>
+
+
+        <div class="interest-grid">
+
+
+          <!-- AI 자동화 -->
+
+          <article class="interest-card">
+
+            <div class="interest-icon" aria-hidden="true">
+              🤖
+            </div>
+
+            <h3>
+              AI 자동화
+            </h3>
+
+            <p>
+              반복적인 작업을 효율적으로 처리하고
+              인공지능을 실제 문제 해결에 활용하는
+              방법에 관심이 있습니다.
+
+              AI를 통해 더 생산적인 환경을
+              만들어 가는 과정을 배우고 싶습니다.
+            </p>
+
+          </article>
+
+
+          <!-- 제로 트러스트 -->
+
+          <article class="interest-card">
+
+            <div class="interest-icon" aria-hidden="true">
+              🔐
+            </div>
+
+            <h3>
+              제로 트러스트 (ZT)
+            </h3>
+
+            <p>
+              모든 접근을 검증한다는
+              제로 트러스트 보안 원칙에 관심이 있습니다.
+
+              네트워크와 시스템을 안전하게 보호하기 위한
+              보안 구조와 접근 제어 방식을
+              깊이 이해하고 싶습니다.
+            </p>
+
+          </article>
+
+
+          <!-- 컴퓨팅 사고 -->
+
+          <article class="interest-card">
+
+            <div class="interest-icon" aria-hidden="true">
+              💡
+            </div>
+
+            <h3>
+              컴퓨팅 사고
+            </h3>
+
+            <p>
+              복잡한 문제를 작은 단위로 나누고
+              논리적으로 해결하는 과정에 관심이 있습니다.
+
+              프로그래밍을 배우는 것을 넘어
+              문제를 분석하고 해결하는
+              사고력을 키우고 싶습니다.
+            </p>
+
+          </article>
+
+
+        </div>
+
       </div>
+
     </section>
-    <section id="contact" class="contact">
+
+
+    <!-- =====================================
+         4. Email / Contact
+    ====================================== -->
+
+    <section id="contact" class="contact-section">
+
       <div class="container">
-        <p class="eyebrow">Get in Touch</p>
-        <h2>함께 소통 해요!</h2>
-        <p>가벼운 인사나 질문 모두 환영입니다. 편하게 연락주세요!</p>
-        <div class="actions">
-          <!-- 이메일 주소를 받으면 href="mailto:본인이메일@example.com"으로 바꿔 주세요. -->
-          <a class="button button-primary" href="mailto:" aria-label="이메일 프로그램 열기">이메일 보내기</a>
-          <a class="button button-secondary" href="https://github.com/wjddncjf" target="_blank" rel="noopener noreferrer">깃허브 방문하기 ↗</a>
+
+        <div class="contact-content">
+
+          <span class="section-label">
+            CONTACT
+          </span>
+
+          <h2>
+            함께 소통 해요!
+          </h2>
+
+          <p>
+            가벼운 인사나 질문 모두 환영입니다.
+            편하게 연락주세요!
+          </p>
+
+
+          <div class="contact-buttons">
+
+            <!-- 이메일 주소 -->
+
+            <a
+              href="mailto:goojji2003@gmail.com"
+              class="btn btn-primary"
+              aria-label="정우철에게 이메일 보내기"
+            >
+              ✉️ 이메일 보내기
+            </a>
+
+
+            <!-- GitHub 주소 -->
+
+            <a
+              href="https://github.com/wjddncjf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline"
+              aria-label="정우철의 GitHub 방문하기, 새 창 열림"
+            >
+              GitHub 방문하기 ↗
+            </a>
+
+          </div>
+
         </div>
+
       </div>
+
     </section>
+
   </main>
-  <footer><div class="container">© 2026 정우철 · 기록하며 성장하는 공간</div></footer>
+
+
+  <!-- =====================================
+       푸터
+  ====================================== -->
+
+  <footer>
+
+    <p>
+      © <span id="year">2026</span> 정우철.
+      Learning, Building, Growing.
+    </p>
+
+  </footer>
+
+
+  <script>
+    // 현재 연도 자동 표시
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // 고정 네비게이션 높이에 맞춰 앵커 위치 조정
+    const header = document.querySelector("header");
+
+    if (header && "ResizeObserver" in window) {
+      const observer = new ResizeObserver(() => {
+        document.documentElement.style.scrollPaddingTop =
+          (header.offsetHeight + 16) + "px";
+      });
+
+      observer.observe(header);
+    }
+  </script>
+
 </body>
 </html>
