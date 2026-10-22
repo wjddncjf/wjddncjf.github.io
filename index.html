@@ -1,26 +1,144 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="개인 소개 및 포트폴리오 페이지">
-  <title>나의 소개 | Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="정우철의 포트폴리오와 파이썬·네트워크 학습 기록">
+  <title>정우철 | 배움의 기록</title>
   <style>
-    :root{color-scheme:dark;--bg:#0b1020;--panel:#151d32;--text:#f3f6ff;--muted:#acb8d0;--accent:#9b8cff;--line:#2a3551}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 85% 0%,#26305c 0%,transparent 40%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,'Noto Sans KR',sans-serif;line-height:1.7}a{color:inherit;text-decoration:none}a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}.wrap{width:min(1060px,calc(100% - 40px));margin:auto}header{border-bottom:1px solid var(--line)}nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:76px}.logo{font-size:1.2rem;font-weight:800;letter-spacing:.04em}.logo span{color:var(--accent)}.links{display:flex;gap:24px;flex-wrap:wrap}.links a{font-size:.95rem;color:var(--muted)}.links a:hover{color:#fff}.hero{padding:110px 0 100px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:40px}.eyebrow{font-weight:700;color:var(--accent);letter-spacing:.14em}.hero h1{font-size:clamp(2.6rem,6vw,5rem);line-height:1.16;letter-spacing:-.05em;margin:16px 0}.hero h1 strong{color:var(--accent)}.hero p{max-width:580px;color:var(--muted);font-size:1.1rem}.avatar{width:230px;aspect-ratio:1;border-radius:38%;display:grid;place-items:center;background:linear-gradient(135deg,#8176f7,#47c3da);font-size:6rem;box-shadow:0 20px 80px #6257ec40}.btn{display:inline-block;margin-top:22px;padding:12px 23px;border-radius:12px;background:var(--accent);color:#101327;font-weight:800}.btn:hover{filter:brightness(1.1)}section{padding:55px 0}h2{font-size:clamp(1.7rem,4vw,2.3rem);letter-spacing:-.04em;margin:0 0 22px}.section-desc{color:var(--muted);margin-top:-10px;margin-bottom:24px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.card{padding:26px;border:1px solid var(--line);border-radius:20px;background:var(--panel)}.card h3{margin:0 0 10px}.card p{margin:0;color:var(--muted)}.tags{display:flex;gap:10px;flex-wrap:wrap}.tag{padding:9px 15px;border-radius:999px;background:#242c49;border:1px solid #39466c;color:#e3e7ff}.contact{background:linear-gradient(120deg,#242b51,#1a2746);border-radius:24px;padding:36px}.contact p{color:var(--muted)}footer{padding:38px 0 45px;text-align:center;color:var(--muted);font-size:.9rem}@media(max-width:700px){nav{padding:15px 0;align-items:flex-start;flex-direction:column}.links{gap:16px}.hero{padding:68px 0 55px;grid-template-columns:1fr}.avatar{grid-row:1;width:140px;font-size:4rem}.grid{grid-template-columns:1fr}section{padding:38px 0}.contact{padding:25px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+    :root { --blue:#2563eb; --blue-dark:#1d4ed8; --ink:#17243b; --muted:#56657b; --line:#dbe5f2; --surface:#fff; --soft:#f4f7fb; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:90px; }
+    body { margin:0; font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; color:var(--ink); background:#fff; line-height:1.75; overflow-wrap:break-word; }
+    a { color:inherit; text-decoration:none; }
+    .container { width:min(1080px, calc(100% - 40px)); margin:0 auto; }
+    header { position:sticky; top:0; z-index:20; background:rgba(255,255,255,.96); border-bottom:1px solid var(--line); backdrop-filter:blur(12px); }
+    .nav { min-height:72px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .brand { font-size:1.08rem; font-weight:800; letter-spacing:-.04em; color:var(--blue-dark); white-space:nowrap; }
+    .menu { display:flex; align-items:center; justify-content:flex-end; flex-wrap:wrap; gap:clamp(12px,3vw,32px); }
+    .menu a { font-size:.94rem; font-weight:650; color:#43516a; transition:color .2s; }
+    .menu a:hover, .menu a:focus-visible { color:var(--blue); }
+    section { padding:100px 0; scroll-margin-top:72px; }
+    .eyebrow { color:var(--blue); font-size:.83rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; margin:0 0 12px; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { font-size:clamp(2.1rem,5vw,3.8rem); line-height:1.25; letter-spacing:-.055em; margin-bottom:26px; }
+    h2 { font-size:clamp(1.7rem,3.5vw,2.35rem); letter-spacing:-.045em; line-height:1.3; margin-bottom:16px; }
+    h3 { font-size:1.2rem; letter-spacing:-.025em; line-height:1.4; margin-bottom:12px; }
+    .lead { font-size:clamp(1rem,2vw,1.17rem); color:var(--muted); max-width:690px; }
+    .intro { background:linear-gradient(135deg,#f1f7ff 0%,#fff 72%); padding:128px 0 116px; }
+    .intro h1 span { color:var(--blue); }
+    .intro .tag { display:inline-block; margin-top:20px; padding:8px 15px; border-radius:999px; background:#e5efff; color:#1e54bd; font-size:.87rem; font-weight:700; }
+    .section-desc { color:var(--muted); margin-bottom:44px; }
+    .timeline { position:relative; margin:0 0 0 10px; padding-left:38px; border-left:3px solid var(--blue); }
+    .timeline-item { position:relative; padding:0 0 42px; }
+    .timeline-item:last-child { padding-bottom:0; }
+    .timeline-item::before { content:""; position:absolute; left:-48px; top:7px; width:17px; height:17px; background:var(--blue); border:4px solid #fff; border-radius:50%; box-shadow:0 0 0 2px var(--blue); }
+    .timeline-card { padding:24px 28px; background:var(--surface); border:1px solid var(--line); border-radius:16px; box-shadow:0 8px 30px rgba(26,64,117,.05); }
+    .timeline-head { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:10px; }
+    .timeline-head h3 { margin:0; }
+    .badge { display:inline-block; border-radius:999px; padding:3px 11px; font-size:.78rem; font-weight:800; background:#e7f0ff; color:#1e55bf; }
+    .badge.planned { background:#eef1f5; color:#64748b; }
+    ul { margin:10px 0 0; padding-left:20px; color:var(--muted); }
+    li + li { margin-top:5px; }
+    .interests { background:#f8fbff; }
+    .cards { display:flex; gap:22px; align-items:stretch; }
+    .card { flex:1 1 0; min-width:0; padding:28px 24px; border:1px solid var(--line); border-top:6px solid var(--blue); border-radius:14px; background:#fff; box-shadow:0 10px 28px rgba(26,64,117,.045); }
+    .card:nth-child(2) { border-top-color:#3b82f6; }
+    .card:nth-child(3) { border-top-color:#60a5fa; }
+    .card p { color:var(--muted); margin:0; }
+    .contact { background:#f1f4f8; text-align:center; }
+    .contact p { color:var(--muted); margin:0 auto 28px; }
+    .actions { display:flex; justify-content:center; flex-wrap:wrap; gap:12px; }
+    .button { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:12px 24px; border-radius:10px; font-weight:750; transition:transform .2s,background .2s,box-shadow .2s; }
+    .button:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(20,60,120,.12); }
+    .button-primary { background:var(--blue); color:white; }
+    .button-primary:hover { background:var(--blue-dark); }
+    .button-secondary { background:white; color:var(--blue-dark); border:1px solid #cbdcf8; }
+    footer { padding:26px 0; text-align:center; font-size:.85rem; color:#7b8799; }
+    :focus-visible { outline:3px solid #93c5fd; outline-offset:4px; }
+    @media (max-width:720px) {
+      .nav { padding:15px 0; align-items:flex-start; flex-direction:column; gap:10px; }
+      .menu { width:100%; justify-content:space-between; gap:8px; }
+      .menu a { font-size:.85rem; }
+      section { padding:72px 0; scroll-margin-top:115px; }
+      html { scroll-padding-top:115px; }
+      .intro { padding:86px 0 78px; }
+      .cards { flex-direction:column; }
+      .timeline { padding-left:27px; }
+      .timeline-item::before { left:-37px; }
+      .timeline-card { padding:20px; }
+    }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .button { transition:none; } }
   </style>
 </head>
 <body>
-  <header><nav class="wrap" aria-label="주 메뉴"><a class="logo" href="#home">MY<span>PROFILE.</span></a><div class="links"><a href="#about">소개</a><a href="#work">활동</a><a href="#skills">관심 분야</a><a href="#contact">연락처</a></div></nav></header>
+  <header>
+    <nav class="nav container" aria-label="주 메뉴">
+      <a class="brand" href="#about">WOOCHUL.LOG</a>
+      <div class="menu">
+        <a href="#about">소개</a>
+        <a href="#activity">배움의 기록</a>
+        <a href="#interests">관심</a>
+        <a href="#contact">Email</a>
+      </div>
+    </nav>
+  </header>
   <main>
-    <div class="wrap"><section class="hero" id="home"><div><div class="eyebrow">HELLO, NICE TO MEET YOU</div><h1>안녕하세요,<br><strong>홍길동</strong>입니다.</h1><p>새로운 것을 배우고, 아이디어를 현실로 만드는 과정을 좋아합니다. 이 공간에서 저의 이야기와 활동을 소개합니다.</p><a class="btn" href="#about">저에 대해 알아보기 →</a></div><div class="avatar" role="img" aria-label="프로필을 나타내는 손 흔드는 이모지">👋</div></section></div>
-    <div class="wrap"><section id="about"><h2>저를 소개합니다</h2><p class="section-desc">작은 호기심을 의미 있는 경험으로 이어갑니다.</p><div class="card"><p>안녕하세요! 저는 배움과 도전을 즐기는 사람입니다. 다양한 사람들과 소통하며 문제를 해결하고, 꾸준히 성장하는 것을 중요하게 생각합니다.<br><br>이 문장은 예시입니다. 본인의 소개 문구로 자유롭게 수정해 주세요.</p></div></section>
-    <section id="work"><h2>경험과 활동</h2><p class="section-desc">제가 관심을 갖고 진행해 온 일들입니다.</p><div class="grid"><article class="card"><h3>🚀 프로젝트</h3><p>직접 기획하고 만들어 본 프로젝트를 소개하는 공간입니다.</p></article><article class="card"><h3>🤝 협업 경험</h3><p>함께 일하며 배우고 성장한 경험을 적어 보세요.</p></article><article class="card"><h3>📚 배움과 성장</h3><p>새롭게 배우는 기술과 지식, 앞으로의 목표를 소개해 보세요.</p></article></div></section>
-    <section id="skills"><h2>관심 분야</h2><p class="section-desc">좋아하거나 배우고 있는 주제들입니다.</p><div class="tags"><span class="tag">웹 개발</span><span class="tag">디자인</span><span class="tag">콘텐츠 제작</span><span class="tag">문제 해결</span><span class="tag">새로운 기술</span></div></section>
-    <section id="contact"><div class="contact"><h2>함께 이야기해요!</h2><p>협업 제안이나 가벼운 인사도 환영합니다.<br>아래 이메일 주소를 실제 연락처로 변경해 주세요.</p><a class="btn" href="mailto:hello@example.com">이메일 보내기 ✉</a></div></section></div>
+    <section id="about" class="intro">
+      <div class="container">
+        <p class="eyebrow">About Me</p>
+        <h1>안녕하세요,<br><span>정우철 입니다.</span></h1>
+        <p class="lead">파이썬과 네트워크를 배우고 있습니다. 제 배움의 과정들을 담아보는 공간입니다.</p>
+        <p class="lead">현재 <strong>SKT Aleph 교육 과정</strong>을 수강하며 기초를 탄탄히 다지고, 배운 내용을 꾸준히 기록하고 있습니다.</p>
+        <span class="tag">배우고 · 기록하고 · 성장하기</span>
+      </div>
+    </section>
+    <section id="activity">
+      <div class="container">
+        <p class="eyebrow">Learning Journey</p>
+        <h2>배움의 기록</h2>
+        <p class="section-desc">작은 개념부터 하나씩 이해하며 쌓아가는 학습 타임라인입니다.</p>
+        <div class="timeline">
+          <article class="timeline-item"><div class="timeline-card">
+            <div class="timeline-head"><h3>파이썬 기초</h3><span class="badge">학습 중</span></div>
+            <ul><li>변수, 자료형, 조건문과 반복문 이해</li><li>함수와 자료구조를 활용한 문제 해결</li><li>간단한 자동화 스크립트 작성 연습</li></ul>
+          </div></article>
+          <article class="timeline-item"><div class="timeline-card">
+            <div class="timeline-head"><h3>네트워크 기초</h3><span class="badge">학습 중</span></div>
+            <ul><li>OSI 7계층과 TCP/IP 모델 이해</li><li>IP 주소, 서브넷, 라우팅 기초 학습</li><li>DNS, HTTP 등 주요 프로토콜 살펴보기</li></ul>
+          </div></article>
+          <article class="timeline-item"><div class="timeline-card">
+            <div class="timeline-head"><h3>네트워크 보안</h3><span class="badge planned">예정</span></div>
+            <ul><li>방화벽과 접근 제어의 기본 개념</li><li>암호화와 안전한 통신 방식 이해</li><li>네트워크 위협 및 보안 대응 기초 학습</li></ul>
+          </div></article>
+        </div>
+      </div>
+    </section>
+    <section id="interests" class="interests">
+      <div class="container">
+        <p class="eyebrow">Interests</p>
+        <h2>관심</h2>
+        <p class="section-desc">지금 배우는 기술과 앞으로 더 깊이 탐구하고 싶은 주제입니다.</p>
+        <div class="cards">
+          <article class="card"><h3>AI 자동화</h3><p>반복되는 작업을 더 빠르고 정확하게 처리하는 방법에 관심이 있습니다. AI와 파이썬을 연결해 일상 속 작은 불편을 해결해 보고 싶습니다.</p></article>
+          <article class="card"><h3>제로 트러스트(ZT)</h3><p>어떤 접근도 당연하게 신뢰하지 않는 보안 원칙이 흥미롭습니다. 네트워크를 공부하며 안전한 시스템을 설계하는 관점을 키우고 싶습니다.</p></article>
+          <article class="card"><h3>컴퓨팅 사고</h3><p>복잡한 문제를 작은 단위로 나누고 논리적으로 해결하는 과정에 매력을 느낍니다. 기술을 익히는 데 그치지 않고 문제 해결력을 기르고 싶습니다.</p></article>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="contact">
+      <div class="container">
+        <p class="eyebrow">Get in Touch</p>
+        <h2>함께 소통 해요!</h2>
+        <p>가벼운 인사나 질문 모두 환영입니다. 편하게 연락주세요!</p>
+        <div class="actions">
+          <!-- 이메일 주소를 받으면 href="mailto:본인이메일@example.com"으로 바꿔 주세요. -->
+          <a class="button button-primary" href="mailto:" aria-label="이메일 프로그램 열기">이메일 보내기</a>
+          <a class="button button-secondary" href="https://github.com/wjddncjf" target="_blank" rel="noopener noreferrer">깃허브 방문하기 ↗</a>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer class="wrap">© <span id="year"></span> 홍길동. All rights reserved.</footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+  <footer><div class="container">© 2026 정우철 · 기록하며 성장하는 공간</div></footer>
 </body>
 </html>
