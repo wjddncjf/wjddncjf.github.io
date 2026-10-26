@@ -4,10 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description"
-        content="파이썬과 네트워크를 배우고 있는 정우철의 개인 포트폴리오 및 학습 기록 공간입니다.">
+  <meta name="description" content="정우철의 학습 과정과 시행착오를 기록하는 개인 포트폴리오입니다.">
 
-  <title>정우철 | 배움의 기록</title>
+  <title>정우철 | 성장의 기록</title>
 
   <style>
     /* ========================================
@@ -680,501 +679,154 @@
       }
     }
 
-  </style>
+  
+
+/* Additional portfolio and accessibility styles */
+.skip-link{position:absolute;top:-80px;left:16px;background:#1d4ed8;color:white;padding:12px 18px;z-index:3000;border-radius:8px}
+.skip-link:focus{top:12px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hero-kicker{font-weight:700;color:var(--primary);letter-spacing:.12em;font-size:.82rem;margin-bottom:18px}
+.hero-emphasis{color:var(--primary)}
+.hero-note{margin-top:22px;font-size:.9rem;color:var(--text-light)}
+.focus-panel{background:var(--background-soft);border:1px solid var(--border);padding:28px;border-radius:var(--radius);margin-top:30px}
+.focus-panel h3{font-size:1.05rem;margin-bottom:10px}
+.learning-meta{font-size:.86rem;color:var(--text-light);margin-bottom:16px}
+.record-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:20px}
+.record-field{padding:18px;background:var(--background-soft);border-radius:12px}
+.record-field h4{font-size:.91rem;color:var(--primary-dark);margin-bottom:8px}
+.record-field p{font-size:.93rem;color:var(--text)}
+.record-field.wide{grid-column:1/-1}
+.record-details{border-top:1px solid var(--border);padding-top:18px;margin-top:24px}
+.record-details summary{cursor:pointer;color:var(--primary-dark);font-weight:700;padding:8px 0;list-style-position:inside}
+.record-details summary:focus-visible{outline:3px solid var(--primary);outline-offset:4px}
+.record-details[open] summary{margin-bottom:14px}
+.record-status{display:inline-block;padding:5px 12px;border-radius:100px;background:#dbeafe;color:#1d4ed8;font-size:.8rem;font-weight:700}
+.topic-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.topic-list span{padding:5px 10px;border:1px solid var(--border);border-radius:100px;color:var(--text-light);font-size:.83rem}
+.privacy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.privacy-card{border:1px solid var(--border);background:white;border-radius:var(--radius);padding:28px}
+.privacy-card h3{margin-bottom:12px;font-size:1.15rem}
+.privacy-card ul{padding-left:22px}
+.privacy-card li{margin:8px 0}
+.privacy-footnote{margin-top:20px;color:var(--text-light);font-size:.9rem}
+.mini-link{color:var(--primary-dark);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+footer a{text-decoration:underline;text-underline-offset:3px}
+@media(max-width:768px){.record-grid,.privacy-grid{grid-template-columns:1fr}.record-field.wide{grid-column:auto}.hero-actions{flex-direction:column}.hero-actions .btn{width:100%}.focus-panel{padding:20px}}
+</style>
 </head>
-
 <body>
-
-  <!-- =====================================
-       상단 네비게이션
-  ====================================== -->
-
+  <a class="skip-link" href="#main">본문으로 바로 가기</a>
   <header>
     <nav class="navbar container" aria-label="주 메뉴">
-
-      <a href="#about" class="logo">
-        WOOCHUL.DEV
-      </a>
-
+      <a href="#about" class="logo">WOOCHUL.DEV</a>
       <ul class="nav-links">
         <li><a href="#about">소개</a></li>
-        <li><a href="#activity">배움의 기록</a></li>
-        <li><a href="#interests">관심</a></li>
-        <li><a href="#contact">Email</a></li>
+        <li><a href="#journey">성장 기록</a></li>
+        <li><a href="#interests">관심 분야</a></li>
+        <li><a href="#privacy">공개 원칙</a></li>
+        <li><a href="#contact">연결</a></li>
       </ul>
-
     </nav>
   </header>
 
-
-  <main>
-
-    <!-- =====================================
-         1. 소개
-    ====================================== -->
-
-    <section id="about" class="hero">
-
-      <div class="container">
-
-        <div class="hero-content">
-
-          <span class="hero-badge">
-            PERSONAL PORTFOLIO
-          </span>
-
-          <h1>
-            안녕하세요,<br>
-            <span>정우철</span> 입니다.
-          </h1>
-
-          <p class="hero-description">
-            파이썬과 네트워크를 배우고 있습니다.
-            제 배움의 과정들을 담아보는 공간입니다.
-          </p>
-
-          <p class="hero-description">
-            새로운 기술을 이해하고 직접 적용해 보는 과정에
-            관심이 있습니다.
-
-            이곳에서는 제가 배우고 있는 내용과
-            관심 분야, 그리고 성장의 과정을 기록합니다.
-          </p>
-
-          <div class="hero-education">
-            현재 SKT Aleph 교육 과정 수강 중
-          </div>
-
-        </div>
-
-      </div>
-
+  <main id="main">
+    <section id="about" class="hero" aria-labelledby="intro-title">
+      <div class="container"><div class="hero-content">
+        <p class="hero-kicker">LEARNING IN PUBLIC · PERSONAL PAGE</p>
+        <h1 id="intro-title">안녕하세요, <span>정우철</span>입니다.<br><span class="hero-emphasis">완성보다 성장의 과정</span>을 기록합니다.</h1>
+        <p class="hero-description">파이썬과 컴퓨터 시스템, 네트워크를 배워 가고 있습니다. 무엇을 공부했는지뿐 아니라, 어디에서 막혔고 어떻게 다시 시도했는지도 남깁니다.</p>
+        <div class="hero-education">SKT ALEPH 교육 과정에서 배우는 중</div>
+        <div class="hero-actions"><a class="btn btn-primary" href="#journey">성장 기록 보기</a><a class="btn btn-outline" href="#privacy">공개 원칙 보기</a></div>
+        <p class="hero-note">이 페이지는 결과만 보여주는 이력서가 아닌, 배우는 사람의 현재를 기록하는 한 페이지입니다.</p>
+      </div></div>
     </section>
 
-
-    <!-- =====================================
-         2. 배움의 기록
-
-         ★ 학습 기록 수정 방법 ★
-
-         GitHub에서 index.html을 열고
-         아래 timeline-item 부분을 수정하세요.
-
-         상태 종류:
-
-         progress  = 학습 중
-         planned   = 학습 예정
-         completed = 학습 완료
-
-         새로운 기록을 추가하려면
-         timeline-item 전체를 복사하여
-         아래에 붙여넣으면 됩니다.
-    ====================================== -->
-
-    <section id="activity" class="activity-section">
-
+    <section id="purpose" aria-labelledby="purpose-title">
       <div class="container">
+        <div class="section-header"><span class="section-label">WHY THIS PAGE</span><h2 class="section-title" id="purpose-title">누구에게, 무엇을 보여주고 싶을까?</h2></div>
+        <div class="focus-panel"><h3>이 페이지의 대상과 목적</h3><p>함께 공부하는 동료와 채용 담당자에게 제가 어떤 기술에 관심이 있고, 학습 중 마주한 어려움을 어떻게 다루며 성장하는지 보여주고 싶습니다.</p></div>
+      </div>
+    </section>
 
-        <div class="section-header">
-
-          <span class="section-label">
-            LEARNING JOURNEY
-          </span>
-
-          <h2 class="section-title">
-            배움의 기록
-          </h2>
-
-          <p class="section-description">
-            배우고, 실습하고, 이해한 내용을 기록합니다.
-            작은 배움이 쌓여 성장하는 과정을 남기고 싶습니다.
-          </p>
-
-        </div>
-
-
+    <section id="journey" class="activity-section" aria-labelledby="journey-title">
+      <div class="container">
+        <div class="section-header"><span class="section-label">LEARNING JOURNEY</span><h2 class="section-title" id="journey-title">배움의 기록, 그리고 시행착오</h2><p class="section-description">잘한 일만 모으지 않습니다. 제가 실제로 질문하고 시도한 과정과 아직 더 연습할 부분을 구분해 기록합니다.</p></div>
         <div class="timeline">
-
-
-          <!-- ==========================
-               학습 기록 1 : 파이썬
-          =========================== -->
-
-          <article class="timeline-item">
-
-            <div class="timeline-card">
-
-              <div class="timeline-heading">
-
-                <h3 class="timeline-title">
-                  파이썬 기초
-                </h3>
-
-                <span class="status progress">
-                  학습 중
-                </span>
-
+          <article class="timeline-item"><div class="timeline-card">
+            <div class="timeline-heading"><h3 class="timeline-title">파이썬 기초: 조건을 코드로 표현하기</h3><span class="status progress">학습 중</span></div>
+            <p class="learning-meta">주제: 조건문 · 반복문 · 변수 누적</p>
+            <p class="timeline-description">조건에 맞는 학생 수를 세는 연습 문제를 단계별로 풀며, 문법을 실제 문제에 연결하는 연습을 했습니다.</p>
+            <details class="record-details"><summary>어려움과 해결 과정 펼쳐보기</summary>
+              <div class="record-grid">
+                <div class="record-field"><h4>무엇을 확인하려 했나</h4><p>점수가 특정 범위에 들어가는지 확인하고, 해당 학생 수를 셀 수 있는지 연습했습니다.</p></div>
+                <div class="record-field"><h4>어려웠던 점</h4><p>조건을 작성하는 것과, 조건을 만족했을 때 값을 누적하는 작업을 연결하는 연습이 필요했습니다.</p></div>
+                <div class="record-field"><h4>내가 직접 한 일</h4><p><code>if score &gt;= 60 and score &lt;= 90:</code>, <code>count = count + 1</code>, <code>print(count)</code>를 단계별로 작성하고 답이 맞는지 질문했습니다.</p></div>
+                <div class="record-field"><h4>AI가 도와준 일</h4><p>작성한 조건식과 누적 코드가 맞는지 설명하고, 전체 코드를 정리하는 데 도움을 주었습니다.</p></div>
+                <div class="record-field wide"><h4>현재의 배움과 다음 목표</h4><p>조건 확인 → 개수 누적 → 출력으로 문제를 나누어 접근했습니다. 다음에는 여러 조건과 반복문을 결합하는 응용 문제를 힌트 없이 풀어보려 합니다.</p></div>
               </div>
+            </details>
+            <div class="topic-list"><span>#Python</span><span>#if</span><span>#for</span><span>#count</span></div>
+          </div></article>
 
-              <p class="timeline-description">
-                프로그래밍의 기본 개념을 이해하고
-                파이썬을 활용한 문제 해결 능력을
-                키우는 과정입니다.
-              </p>
-
-              <ul class="learning-list">
-                <li>변수와 자료형</li>
-                <li>조건문과 반복문</li>
-                <li>리스트와 딕셔너리</li>
-                <li>함수와 모듈</li>
-                <li>기초 문제 해결 및 실습</li>
-              </ul>
-
-              <div class="learning-note">
-
-                <strong>
-                  📝 배움과 기록
-                </strong>
-
-                <p>
-                  학습하면서 새롭게 이해한 개념이나
-                  직접 해결한 문제를 이곳에 기록할 예정입니다.
-                </p>
-
+          <article class="timeline-item"><div class="timeline-card">
+            <div class="timeline-heading"><h3 class="timeline-title">CPU 아키텍처와 OS: 서버를 직접 살펴보기</h3><span class="status progress">학습 중</span></div>
+            <p class="learning-meta">주제: ARM64 · x86_64 · Linux 명령어</p>
+            <p class="timeline-description">서버의 CPU 아키텍처와 운영체제를 확인하고, 명령어 출력 결과를 비교하며 문서로 정리하고 있습니다.</p>
+            <details class="record-details"><summary>어려움과 해결 과정 펼쳐보기</summary>
+              <div class="record-grid">
+                <div class="record-field"><h4>무엇을 확인하려 했나</h4><p>서버가 어떤 아키텍처와 OS를 사용하는지, 실행 파일이 어떤 CPU 아키텍처용인지 살펴보았습니다.</p></div>
+                <div class="record-field"><h4>어려웠던 점</h4><p>명령어를 실행하는 것과 결과가 의미하는 바를 이해하는 데 시간이 필요했습니다.</p></div>
+                <div class="record-field"><h4>내가 직접 한 일</h4><p><code>uname -m</code>, <code>lscpu</code>, <code>file</code> 등 명령어를 실행해 결과를 확인하고 서버 간 차이를 정리했습니다.</p></div>
+                <div class="record-field"><h4>도움받은 부분</h4><p>CPU·OS 관련 개념을 질문하고 명령어 결과를 해석하는 데 설명을 참고했습니다.</p></div>
+                <div class="record-field wide"><h4>현재의 배움과 다음 목표</h4><p>확인한 출력과 해석을 분리해 적고 있습니다. 서로 다른 아키텍처와 배포판의 공통점·차이점을 더 명확히 설명하는 것이 목표입니다.</p></div>
               </div>
+            </details>
+            <div class="topic-list"><span>#CPU</span><span>#Linux</span><span>#ARM64</span><span>#x86_64</span></div>
+          </div></article>
 
-            </div>
-
-          </article>
-
-
-          <!-- ==========================
-               학습 기록 2 : 네트워크
-          =========================== -->
-
-          <article class="timeline-item">
-
-            <div class="timeline-card">
-
-              <div class="timeline-heading">
-
-                <h3 class="timeline-title">
-                  네트워크 기초
-                </h3>
-
-                <span class="status planned">
-                  학습 예정
-                </span>
-
-              </div>
-
-              <p class="timeline-description">
-                컴퓨터 네트워크의 동작 원리를 이해하고
-                데이터가 전달되는 과정을 학습합니다.
-              </p>
-
-              <ul class="learning-list">
-                <li>OSI 7계층</li>
-                <li>TCP/IP 프로토콜</li>
-                <li>IP 주소와 서브넷</li>
-                <li>라우팅과 스위칭</li>
-                <li>기초 네트워크 구성 실습</li>
-              </ul>
-
-              <div class="learning-note">
-
-                <strong>
-                  📝 배움과 기록
-                </strong>
-
-                <p>
-                  학습을 시작하면 이해한 개념과
-                  실습 경험을 기록할 예정입니다.
-                </p>
-
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <!-- ==========================
-               학습 기록 3 : 네트워크 보안
-          =========================== -->
-
-          <article class="timeline-item">
-
-            <div class="timeline-card">
-
-              <div class="timeline-heading">
-
-                <h3 class="timeline-title">
-                  네트워크 보안
-                </h3>
-
-                <span class="status planned">
-                  학습 예정
-                </span>
-
-              </div>
-
-              <p class="timeline-description">
-                안전한 네트워크 환경을 구성하기 위한
-                보안 개념과 기술을 학습합니다.
-              </p>
-
-              <ul class="learning-list">
-                <li>네트워크 보안의 기본 개념</li>
-                <li>방화벽과 접근 제어</li>
-                <li>네트워크 위협과 대응</li>
-                <li>제로 트러스트 보안 모델</li>
-                <li>기초 보안 실습</li>
-              </ul>
-
-              <div class="learning-note">
-
-                <strong>
-                  📝 배움과 기록
-                </strong>
-
-                <p>
-                  보안 기술을 학습하며 이해한 내용과
-                  실습 과정에서 얻은 경험을 기록할 예정입니다.
-                </p>
-
-              </div>
-
-            </div>
-
-          </article>
-
+          <article class="timeline-item"><div class="timeline-card">
+            <div class="timeline-heading"><h3 class="timeline-title">네트워크와 보안: 다음에 깊이 배우고 싶은 것</h3><span class="status planned">학습 확대 예정</span></div>
+            <p class="timeline-description">IP 주소, 통신 흐름, 접근 제어와 제로 트러스트에 관심이 있습니다. 앞으로 배운 개념과 직접 해본 실습을 구분해 기록할 예정입니다.</p>
+            <div class="learning-note"><strong>아직 작성하지 않은 기록</strong><p>실습을 진행한 뒤 실제 확인한 내용, 막혔던 점, 해결 시도와 다음 과제를 추가하겠습니다. 하지 않은 실습을 성과로 쓰지 않겠습니다.</p></div>
+          </div></article>
         </div>
-
-
-        <!-- 학습 상태 안내 -->
-
-        <div class="timeline-guide">
-
-          <h3>
-            📌 학습 상태 안내
-          </h3>
-
-          <p>
-            🔵 학습 중 : 현재 공부하거나 실습하고 있는 주제
-            <br>
-
-            🟢 학습 완료 : 정한 학습 목표를 달성한 주제
-            <br>
-
-            ⚪ 학습 예정 : 앞으로 공부할 계획인 주제
-          </p>
-
-        </div>
-
       </div>
-
     </section>
 
-
-    <!-- =====================================
-         3. 관심 분야
-    ====================================== -->
-
-    <section id="interests" class="interests-section">
-
-      <div class="container">
-
-        <div class="section-header">
-
-          <span class="section-label">
-            MY INTERESTS
-          </span>
-
-          <h2 class="section-title">
-            관심
-          </h2>
-
-          <p class="section-description">
-            기술을 배우면서 특히 흥미를 느끼는 분야들입니다.
-          </p>
-
-        </div>
-
-
-        <div class="interest-grid">
-
-
-          <!-- AI 자동화 -->
-
-          <article class="interest-card">
-
-            <div class="interest-icon" aria-hidden="true">
-              🤖
-            </div>
-
-            <h3>
-              AI 자동화
-            </h3>
-
-            <p>
-              반복적인 작업을 효율적으로 처리하고
-              인공지능을 실제 문제 해결에 활용하는
-              방법에 관심이 있습니다.
-
-              AI를 통해 더 생산적인 환경을
-              만들어 가는 과정을 배우고 싶습니다.
-            </p>
-
-          </article>
-
-
-          <!-- 제로 트러스트 -->
-
-          <article class="interest-card">
-
-            <div class="interest-icon" aria-hidden="true">
-              🔐
-            </div>
-
-            <h3>
-              제로 트러스트 (ZT)
-            </h3>
-
-            <p>
-              모든 접근을 검증한다는
-              제로 트러스트 보안 원칙에 관심이 있습니다.
-
-              네트워크와 시스템을 안전하게 보호하기 위한
-              보안 구조와 접근 제어 방식을
-              깊이 이해하고 싶습니다.
-            </p>
-
-          </article>
-
-
-          <!-- 컴퓨팅 사고 -->
-
-          <article class="interest-card">
-
-            <div class="interest-icon" aria-hidden="true">
-              💡
-            </div>
-
-            <h3>
-              컴퓨팅 사고
-            </h3>
-
-            <p>
-              복잡한 문제를 작은 단위로 나누고
-              논리적으로 해결하는 과정에 관심이 있습니다.
-
-              프로그래밍을 배우는 것을 넘어
-              문제를 분석하고 해결하는
-              사고력을 키우고 싶습니다.
-            </p>
-
-          </article>
-
-
-        </div>
-
+    <section id="interests" class="interests-section" aria-labelledby="interests-title"><div class="container">
+      <div class="section-header"><span class="section-label">MY INTERESTS</span><h2 class="section-title" id="interests-title">계속 알아가고 싶은 분야</h2><p class="section-description">현재의 관심은 완성된 전문성이 아니라 앞으로 탐색할 방향입니다.</p></div>
+      <div class="interest-grid">
+        <article class="interest-card"><div class="interest-icon" aria-hidden="true">🤖</div><h3>AI 자동화</h3><p>반복되는 작업을 줄이고 문제 해결에 AI를 활용하는 방법을 배우고 싶습니다.</p></article>
+        <article class="interest-card"><div class="interest-icon" aria-hidden="true">🌐</div><h3>시스템과 네트워크</h3><p>운영체제와 하드웨어, 네트워크가 실제 환경에서 어떻게 연결되는지 이해하고 싶습니다.</p></article>
+        <article class="interest-card"><div class="interest-icon" aria-hidden="true">🔐</div><h3>제로 트러스트</h3><p>접근을 검증하고 시스템을 보호하는 보안 원칙을 기초부터 공부하고 싶습니다.</p></article>
       </div>
+    </div></section>
 
-    </section>
-
-
-    <!-- =====================================
-         4. Email / Contact
-    ====================================== -->
-
-    <section id="contact" class="contact-section">
-
-      <div class="container">
-
-        <div class="contact-content">
-
-          <span class="section-label">
-            CONTACT
-          </span>
-
-          <h2>
-            함께 소통 해요!
-          </h2>
-
-          <p>
-            가벼운 인사나 질문 모두 환영입니다.
-            편하게 연락주세요!
-          </p>
-
-
-          <div class="contact-buttons">
-
-            <!-- 이메일 주소 -->
-
-            <a
-              href="mailto:goojji2003@gmail.com"
-              class="btn btn-primary"
-              aria-label="정우철에게 이메일 보내기"
-            >
-              ✉️ 이메일 보내기
-            </a>
-
-
-            <!-- GitHub 주소 -->
-
-            <a
-              href="https://github.com/wjddncjf"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-outline"
-              aria-label="정우철의 GitHub 방문하기, 새 창 열림"
-            >
-              GitHub 방문하기 ↗
-            </a>
-
-          </div>
-
-        </div>
-
+    <section id="privacy" aria-labelledby="privacy-title"><div class="container">
+      <div class="section-header"><span class="section-label">SHARE WITH INTENTION</span><h2 class="section-title" id="privacy-title">내가 정한 공개 원칙</h2><p class="section-description">보여주고 싶은 정보만 공개하고, 공개하지 않기로 한 정보는 페이지와 소스 코드에 넣지 않습니다.</p></div>
+      <div class="privacy-grid">
+        <div class="privacy-card"><h3>공개할 정보</h3><ul><li>이름과 학습 방향</li><li>관심 기술 분야</li><li>학습 과정과 실습 경험</li><li>어려웠던 점과 해결 시도</li><li>공개 GitHub 프로필</li></ul></div>
+        <div class="privacy-card"><h3>공개하지 않을 정보</h3><ul><li>개인 전화번호</li><li>집 주소 및 상세 위치</li><li>개인 이메일 주소</li><li>비밀번호·토큰·API 키</li><li>회사·고객사의 비공개 정보</li></ul></div>
       </div>
+      <p class="privacy-footnote">이 목록은 공개 범위에 대한 선언입니다. 실제 배포 전에는 HTML과 Git 이력에도 비공개 정보가 없는지 확인합니다.</p>
+    </div></section>
 
-    </section>
-
+    <section id="contact" class="contact-section" aria-labelledby="contact-title"><div class="container"><div class="contact-content">
+      <span class="section-label">CONNECT</span><h2 id="contact-title">배우고 만든 것을 이어갑니다</h2>
+      <p>코드와 공개 학습 기록은 GitHub에서 확인할 수 있습니다.</p>
+      <div class="contact-buttons"><a href="https://github.com/wjddncjf" class="btn btn-primary" target="_blank" rel="noopener noreferrer">GitHub 프로필 방문하기 (새 창)</a><a href="#about" class="btn btn-outline">맨 위로 돌아가기</a></div>
+    </div></div></section>
   </main>
-
-
-  <!-- =====================================
-       푸터
-  ====================================== -->
-
-  <footer>
-
-    <p>
-      © <span id="year">2026</span> 정우철.
-      Learning, Building, Growing.
-    </p>
-
-  </footer>
-
-
+  <footer><p>© <span id="year">2026</span> 정우철 · 배우고, 시도하고, 기록합니다.</p></footer>
   <script>
-    // 현재 연도 자동 표시
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-
-    // 고정 네비게이션 높이에 맞춰 앵커 위치 조정
-    const header = document.querySelector("header");
-
-    if (header && "ResizeObserver" in window) {
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const header = document.querySelector('header');
+    if (header && 'ResizeObserver' in window) {
       const observer = new ResizeObserver(() => {
-        document.documentElement.style.scrollPaddingTop =
-          (header.offsetHeight + 16) + "px";
+        document.documentElement.style.scrollPaddingTop = (header.offsetHeight + 16) + 'px';
       });
-
       observer.observe(header);
     }
   </script>
-
 </body>
 </html>
