@@ -1,14 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta name="description" content="Swift Playgrounds, Python, AI, 네트워크와 Zero Trust를 공부하며 어려움과 배움을 나누는 정우철의 학습 기록입니다.">
-
-  <title>정우철 | 배우며 남기는 기록</title>
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Swift Playgrounds, Python, AI, 네트워크와 Zero Trust를 공부하며 어려움과 배움을 나누는 정우철의 학습 기록입니다." name="description"/>
+<title>정우철 | 배우며 남기는 기록</title>
+<style>
     /* ========================================
        1. 기본 설정
     ======================================== */
@@ -705,118 +703,96 @@
 .topic-list span{padding:5px 10px;border:1px solid var(--border);border-radius:100px;color:var(--text-light);font-size:.83rem}
 @media(max-width:768px){.record-grid{grid-template-columns:1fr}.record-field.wide{grid-column:auto}.hero-actions{flex-direction:column}.hero-actions .btn{width:100%}.focus-panel{padding:20px}}
 </style>
-</head>
+<style>
+/* Learning records stay expanded and emphasize the learner's process. */
+#journey .record-details { margin-top: 26px; padding-top: 0; border-top: 0; }
+#journey .record-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 0; }
+#journey .record-field { padding: 24px 28px; border: 1px solid var(--border); background: #f8fafc; }
+#journey .record-field:nth-child(1), #journey .record-field:nth-child(2) { background: #eff6ff; border-color: #bfdbfe; }
+#journey .record-field h4 { font-size: 1.05rem; margin-bottom: 11px; }
+#journey .record-field p { font-size: 1rem; line-height: 1.95; }
+#journey .timeline-card { padding: 36px; }
+#journey .timeline-item { margin-bottom: 46px; }
+@media(max-width:768px) { #journey .timeline-card {padding: 24px 18px;} #journey .record-field {padding: 20px 18px;} }
+</style></head>
 <body>
-  <a class="skip-link" href="#main">본문으로 바로 가기</a>
-  <header>
-    <nav class="navbar container" aria-label="주 메뉴">
-      <a href="#about" class="logo">WOOCHUL.DEV</a>
-      <ul class="nav-links">
-        <li><a href="#about">소개</a></li>
-        <li><a href="#interests">배우는 주제</a></li>
-        <li><a href="#journey">학습 기록</a></li>
-        <li><a href="#contact">연결</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main id="main">
-    <section id="about" class="hero" aria-labelledby="intro-title">
-      <div class="container"><div class="hero-content">
-        <p class="hero-kicker">LEARN · TRY · SHARE</p>
-        <h1 id="intro-title">안녕하세요, <span>정우철</span>입니다.<br><span class="hero-emphasis">배우고, 막히고, 다시 시도한 이야기</span>를 남깁니다.</h1>
-        <p class="hero-description">Swift Playgrounds와 Python, AI 활용을 통해 컴퓨팅 사고를 배우고 있습니다. 네트워크 기초와 Zero Trust도 함께 공부하며, 배운 내용뿐 아니라 과정에서 어려웠던 점과 이를 이해하고 극복하기 위해 시도한 일들을 기록합니다.</p>
-        <div class="hero-education">SKT ALEPH 교육 과정에서 배우는 중</div>
-        <div class="hero-actions"><a class="btn btn-primary" href="#journey">학습 기록 읽기</a><a class="btn btn-outline" href="#contact">이야기 나누기</a></div>
-      </div></div>
-    </section>
-
-    <section id="purpose" aria-labelledby="purpose-title">
-      <div class="container">
-        <div class="section-header"><span class="section-label">WHY I WRITE</span><h2 class="section-title" id="purpose-title">같은 고민을 하는 누군가에게</h2></div>
-        <div class="focus-panel"><p>저와 비슷한 분야에 관심이 있거나 같은 고민을 하는 분들과 경험을 나누고 싶습니다. 공부하다 막혔던 지점과 이해하기 위해 시도한 방법, 아직 풀지 못한 질문까지 솔직하게 남기려 합니다. 이 기록이 비슷한 길을 걷는 누군가에게 작은 힌트가 되고, 서로 배우는 대화의 시작이 되었으면 좋겠습니다.</p></div>
-      </div>
-    </section>
-
-    <section id="interests" class="interests-section" aria-labelledby="interests-title"><div class="container">
-      <div class="section-header"><span class="section-label">MY INTERESTS</span><h2 class="section-title" id="interests-title">지금 배우는 주제들</h2><p class="section-description">관심사이자 현재 공부하고 있는 방향입니다. 서로 연결되는 지점을 찾아가고 있습니다.</p></div>
-      <div class="interest-grid">
-        <article class="interest-card"><div class="interest-icon" aria-hidden="true">🧩</div><h3>Swift · Python · 컴퓨팅 사고</h3><p>Swift Playgrounds와 Python으로 조건, 반복, 함수 등을 배우고, 문제를 작은 단계로 나누어 생각하는 방법을 연습합니다.</p></article>
-        <article class="interest-card"><div class="interest-icon" aria-hidden="true">🤖</div><h3>AI와 함께 학습하기</h3><p>AI에게 답을 맡기기보다 질문하고 피드백을 받아 직접 시도한 것과 도움받은 부분을 구분하려 합니다.</p></article>
-        <article class="interest-card"><div class="interest-icon" aria-hidden="true">🌐</div><h3>네트워크 · Zero Trust</h3><p>IP와 통신 원리를 익히고, 접근을 검증하는 Zero Trust의 기본 개념을 연결해 이해하는 중입니다.</p></article>
-      </div>
-    </div></section>
-
-
-    <section id="journey" class="activity-section" aria-labelledby="journey-title">
-      <div class="container">
-        <div class="section-header"><span class="section-label">LEARNING JOURNEY</span><h2 class="section-title" id="journey-title">배우면서 남긴 기록</h2><p class="section-description">결과만 적기보다 무엇이 어려웠는지, 어떻게 접근했는지, 지금 어디까지 이해했는지를 함께 남깁니다. 펼치기를 눌러 자세히 읽을 수 있습니다.</p></div>
-        <div class="timeline">
-          <article class="timeline-item"><div class="timeline-card">
-            <div class="timeline-heading"><h3 class="timeline-title">Swift Playgrounds: 코드를 움직임으로 이해하기</h3><span class="status progress">학습 중</span></div>
-            <p class="learning-meta">주제: 변수 · 조건문 · 반복문 · 함수</p>
-            <p class="timeline-description">Swift Playgrounds에서 캐릭터를 움직이는 문제를 풀면서 코드를 한 줄씩 실행해 보고, 반복되는 동작을 함수로 표현하는 방법을 배웠습니다.</p>
-            <details class="record-details"><summary>배운 과정과 다음 질문 펼쳐보기</summary>
-              <div class="record-grid">
-                <div class="record-field"><h4>배운 내용</h4><p>변수, 점 표기법, <code>if</code>, <code>for</code>를 학습한 뒤 <code>func</code>를 배우며 이전 풀이를 다시 살펴보았습니다.</p></div>
-                <div class="record-field"><h4>고민했던 부분</h4><p>같은 동작을 반복해서 작성하는 대신, 배운 문법을 활용해 코드를 더 간결하게 표현할 수 있을지 질문했습니다.</p></div>
-                <div class="record-field"><h4>내가 한 일</h4><p><code>move(distance: Int)</code>와 반복문을 활용하는 풀이를 고민하고, 함수를 배운 뒤 이전 코드를 다시 정리하는 방법을 물었습니다.</p></div>
-                <div class="record-field"><h4>AI의 도움</h4><p>지금까지 배운 문법 범위에 맞춰 풀이 방법과 함수로 정리하는 방향을 설명받았습니다.</p></div>
-                <div class="record-field wide"><h4>다음에 확인할 것</h4><p>같은 문제를 먼저 스스로 풀고, 함수로 바꾸기 전과 후의 차이를 직접 실행해 비교해 보고 싶습니다. 이 기록은 학습 과정이며 독립적인 해결 성과를 뜻하지 않습니다.</p></div>
-              </div>
-            </details>
-            <div class="topic-list"><span>#SwiftPlaygrounds</span><span>#for</span><span>#func</span><span>#컴퓨팅사고</span></div>
-          </div></article>
-
-          <article class="timeline-item"><div class="timeline-card">
-            <div class="timeline-heading"><h3 class="timeline-title">파이썬 기초: 조건을 코드로 표현하기</h3><span class="status progress">학습 중</span></div>
-            <p class="learning-meta">주제: 조건문 · 반복문 · 변수 누적</p>
-            <p class="timeline-description">조건에 맞는 학생 수를 세는 연습 문제를 단계별로 풀며, 문법을 실제 문제에 연결하는 연습을 했습니다.</p>
-            <details class="record-details"><summary>어려움과 해결 과정 펼쳐보기</summary>
-              <div class="record-grid">
-                <div class="record-field"><h4>무엇을 확인하려 했나</h4><p>점수가 특정 범위에 들어가는지 확인하고, 해당 학생 수를 셀 수 있는지 연습했습니다.</p></div>
-                <div class="record-field"><h4>어려웠던 점</h4><p>조건을 작성하는 것과, 조건을 만족했을 때 값을 누적하는 작업을 연결하는 연습이 필요했습니다.</p></div>
-                <div class="record-field"><h4>내가 직접 한 일</h4><p><code>if score &gt;= 60 and score &lt;= 90:</code>, <code>count = count + 1</code>, <code>print(count)</code>를 단계별로 작성하고 답이 맞는지 질문했습니다.</p></div>
-                <div class="record-field"><h4>AI가 도와준 일</h4><p>작성한 조건식과 누적 코드가 맞는지 설명하고, 전체 코드를 정리하는 데 도움을 주었습니다.</p></div>
-                <div class="record-field wide"><h4>현재의 배움과 다음 목표</h4><p>조건 확인 → 개수 누적 → 출력으로 문제를 나누어 접근했습니다. 다음에는 여러 조건과 반복문을 결합하는 응용 문제를 힌트 없이 풀어보려 합니다.</p></div>
-              </div>
-            </details>
-            <div class="topic-list"><span>#Python</span><span>#if</span><span>#for</span><span>#count</span></div>
-          </div></article>
-
-          <article class="timeline-item"><div class="timeline-card">
-            <div class="timeline-heading"><h3 class="timeline-title">CPU 아키텍처와 OS: 서버를 직접 살펴보기</h3><span class="status progress">학습 중</span></div>
-            <p class="learning-meta">주제: ARM64 · x86_64 · Linux 명령어</p>
-            <p class="timeline-description">서버의 CPU 아키텍처와 운영체제를 확인하고, 명령어 출력 결과를 비교하며 문서로 정리하고 있습니다.</p>
-            <details class="record-details"><summary>어려움과 해결 과정 펼쳐보기</summary>
-              <div class="record-grid">
-                <div class="record-field"><h4>무엇을 확인하려 했나</h4><p>서버가 어떤 아키텍처와 OS를 사용하는지, 실행 파일이 어떤 CPU 아키텍처용인지 살펴보았습니다.</p></div>
-                <div class="record-field"><h4>어려웠던 점</h4><p>명령어를 실행하는 것과 결과가 의미하는 바를 이해하는 데 시간이 필요했습니다.</p></div>
-                <div class="record-field"><h4>내가 직접 한 일</h4><p><code>uname -m</code>, <code>lscpu</code>, <code>file</code> 등 명령어를 실행해 결과를 확인하고 서버 간 차이를 정리했습니다.</p></div>
-                <div class="record-field"><h4>도움받은 부분</h4><p>CPU·OS 관련 개념을 질문하고 명령어 결과를 해석하는 데 설명을 참고했습니다.</p></div>
-                <div class="record-field wide"><h4>현재의 배움과 다음 목표</h4><p>확인한 출력과 해석을 분리해 적고 있습니다. 서로 다른 아키텍처와 배포판의 공통점·차이점을 더 명확히 설명하는 것이 목표입니다.</p></div>
-              </div>
-            </details>
-            <div class="topic-list"><span>#CPU</span><span>#Linux</span><span>#ARM64</span><span>#x86_64</span></div>
-          </div></article>
-
-          <article class="timeline-item"><div class="timeline-card">
-            <div class="timeline-heading"><h3 class="timeline-title">네트워크와 Zero Trust: 기초부터 이어가는 공부</h3><span class="status progress">공부 중</span></div>
-            <p class="timeline-description">IP 주소와 네트워크 통신의 기초를 익히고, 접근 제어와 Zero Trust를 공부하고 있습니다. 개념 학습과 직접 확인한 실습을 구분해 기록하려 합니다.</p>
-            <div class="learning-note"><strong>앞으로 더 채워 갈 기록</strong><p>학습 중 생기는 질문과 시행착오를 계속 추가할 예정입니다. 아직 검증하지 않은 내용은 확인된 결과처럼 적지 않겠습니다.</p></div>
-          </div></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="contact-section" aria-labelledby="contact-title"><div class="container"><div class="contact-content">
-      <span class="section-label">CONNECT</span><h2 id="contact-title">비슷한 고민을 나눠요</h2>
-      <p>공부하다 막혔던 경험이나 저에게 해줄 조언, 함께 나누고 싶은 이야기가 있다면 편하게 연락해 주세요.</p>
-      <div class="contact-buttons"><a href="mailto:goojji2003@gmail.com" class="btn btn-primary">이메일 보내기</a><a href="https://github.com/wjddncjf" class="btn btn-outline" target="_blank" rel="noopener noreferrer">GitHub 방문하기 (새 창)</a></div>
-    </div></div></section>
-  </main>
-  <footer><p>© <span id="year">2026</span> 정우철 · 배우고, 질문하고, 함께 나눕니다.</p></footer>
-  <script>
+<a class="skip-link" href="#main">본문으로 바로 가기</a>
+<header>
+<nav aria-label="주 메뉴" class="navbar container">
+<a class="logo" href="#about">WOOCHUL.DEV</a>
+<ul class="nav-links">
+<li><a href="#about">소개</a></li>
+<li><a href="#interests">배우는 주제</a></li>
+<li><a href="#journey">학습 기록</a></li>
+<li><a href="#contact">연결</a></li>
+</ul>
+</nav>
+</header>
+<main id="main">
+<section aria-labelledby="intro-title" class="hero" id="about">
+<div class="container"><div class="hero-content">
+<p class="hero-kicker">LEARN · TRY · SHARE</p>
+<h1 id="intro-title">안녕하세요, <span>정우철</span>입니다.<br/><span class="hero-emphasis">배우고, 막히고, 다시 시도한 이야기</span>를 남깁니다.</h1>
+<p class="hero-description">Swift Playgrounds와 Python, AI 활용을 통해 컴퓨팅 사고를 배우고 있습니다. 네트워크 기초와 Zero Trust도 함께 공부하며, 배운 내용뿐 아니라 과정에서 어려웠던 점과 이를 이해하고 극복하기 위해 시도한 일들을 기록합니다.</p>
+<div class="hero-education">SKT ALEPH 교육 과정에서 배우는 중</div>
+<div class="hero-actions"><a class="btn btn-primary" href="#journey">학습 기록 읽기</a><a class="btn btn-outline" href="#contact">이야기 나누기</a></div>
+</div></div>
+</section>
+<section aria-labelledby="purpose-title" id="purpose">
+<div class="container">
+<div class="section-header"><span class="section-label">WHY I WRITE</span><h2 class="section-title" id="purpose-title">같은 고민을 하는 누군가에게</h2></div>
+<div class="focus-panel"><p>저와 비슷한 분야에 관심이 있거나 같은 고민을 하는 분들과 경험을 나누고 싶습니다. 공부하다 막혔던 지점과 이해하기 위해 시도한 방법, 아직 풀지 못한 질문까지 솔직하게 남기려 합니다. 이 기록이 비슷한 길을 걷는 누군가에게 작은 힌트가 되고, 서로 배우는 대화의 시작이 되었으면 좋겠습니다.</p></div>
+</div>
+</section>
+<section aria-labelledby="interests-title" class="interests-section" id="interests"><div class="container">
+<div class="section-header"><span class="section-label">MY INTERESTS</span><h2 class="section-title" id="interests-title">지금 배우는 주제들</h2><p class="section-description">관심사이자 현재 공부하고 있는 방향입니다. 서로 연결되는 지점을 찾아가고 있습니다.</p></div>
+<div class="interest-grid">
+<article class="interest-card"><div aria-hidden="true" class="interest-icon">🧩</div><h3>Swift · Python · 컴퓨팅 사고</h3><p>Swift Playgrounds와 Python으로 조건, 반복, 함수 등을 배우고, 문제를 작은 단계로 나누어 생각하는 방법을 연습합니다.</p></article>
+<article class="interest-card"><div aria-hidden="true" class="interest-icon">🤖</div><h3>AI와 함께 학습하기</h3><p>AI에게 답을 맡기기보다 질문하고 피드백을 받아 직접 시도한 것과 도움받은 부분을 구분하려 합니다.</p></article>
+<article class="interest-card"><div aria-hidden="true" class="interest-icon">🌐</div><h3>네트워크 · Zero Trust</h3><p>IP와 통신 원리를 익히고, 접근을 검증하는 Zero Trust의 기본 개념을 연결해 이해하는 중입니다.</p></article>
+</div>
+</div></section>
+<section aria-labelledby="journey-title" class="activity-section" id="journey">
+<div class="container">
+<div class="section-header"><span class="section-label">LEARNING JOURNEY</span><h2 class="section-title" id="journey-title">배우면서 남긴 기록</h2><p class="section-description">무엇을 배웠는지보다 어떤 점에서 막혔고, 스스로 무엇을 시도했는지를 먼저 기록합니다. 아직 확인하지 못한 부분도 함께 남깁니다.</p></div>
+<div class="timeline">
+<article class="timeline-item"><div class="timeline-card">
+<div class="timeline-heading"><h3 class="timeline-title">Swift Playgrounds: 코드를 움직임으로 이해하기</h3><span class="status progress">학습 중</span></div>
+<p class="learning-meta">주제: 변수 · 조건문 · 반복문 · 함수</p>
+<p class="timeline-description">Swift Playgrounds에서 캐릭터를 움직이는 문제를 풀면서 코드를 한 줄씩 실행해 보고, 반복되는 동작을 함수로 표현하는 방법을 배웠습니다.</p>
+<div class="record-details"><div class="record-grid"><div class="record-field wide"><h4>고민했던 부분</h4><p>캐릭터를 움직이는 순서가 길어질수록 <code>moveForward()</code>나 방향 전환 코드를 여러 번 적게 되었습니다. 단순히 코드를 짧게 쓰는 것이 아니라, <strong>반복되는 동작을 어떻게 찾아 하나의 작업으로 묶을지</strong>가 궁금했습니다. 특히 앞으로 이동하는 횟수와 방향을 바꾸는 과정을 구분하고, 뒤돌아가는 동작까지 함수로 표현할 수 있는지 고민했습니다.</p></div><div class="record-field wide"><h4>내가 직접 한 일</h4><p>계단과 스위치 문제에서 이동 동작을 <code>for</code> 반복문으로 묶고, 반복되는 구간을 <code>solveStairs()</code> 함수로 작성했습니다. 오른쪽으로 두 번 회전하는 코드를 별도 함수로 만들고, 이를 <code>turnAround()</code>처럼 동작이 드러나는 이름으로 표현할 방법을 질문했습니다. 보석 수집·스위치 작동 문제에서도 반복되는 명령들을 찾아 함수와 반복문으로 묶는 방법을 검토했습니다.</p></div><div class="record-field wide"><h4>AI의 도움과 내가 판단한 부분</h4><p>AI에게 기존 코드와 같은 동작을 하는 더 간단한 작성법을 물었고, 함수로 나누는 방향을 설명받았습니다. 다만 학습한 <code>for</code>와 <code>func</code> 범위 안에서 이해할 수 있는 방식을 우선으로 두었습니다. 제안된 코드를 그대로 성과로 적기보다, <strong>내가 작성한 부분과 질문을 통해 알아본 부분</strong>을 나누어 기록합니다.</p></div><div class="record-field wide"><h4>다음에 확인할 것</h4><p>같은 스테이지에서 함수를 사용하기 전과 후의 코드를 직접 실행해 동작이 동일한지 비교하고 싶습니다. 함수 이름만 바꾸는 것과 실제로 반복을 줄이는 것의 차이도 확인할 계획입니다.</p></div><div class="record-field wide"><h4>배운 내용</h4><p>변수, 점 표기법, <code>if</code> 조건문, <code>for</code> 반복문, <code>func</code> 함수의 기본 사용법을 학습했습니다.</p></div></div></div>
+<div class="topic-list"><span>#SwiftPlaygrounds</span><span>#for</span><span>#func</span><span>#컴퓨팅사고</span></div>
+</div></article>
+<article class="timeline-item"><div class="timeline-card">
+<div class="timeline-heading"><h3 class="timeline-title">파이썬 기초: 조건을 코드로 표현하기</h3><span class="status progress">학습 중</span></div>
+<p class="learning-meta">주제: 조건문 · 반복문 · 변수 누적</p>
+<p class="timeline-description">조건에 맞는 학생 수를 세는 연습 문제를 단계별로 풀며, 문법을 실제 문제에 연결하는 연습을 했습니다.</p>
+<div class="record-details"><div class="record-grid"><div class="record-field wide"><h4>고민했던 부분</h4><p>점수가 60점 이상이면서 90점 이하인 학생 수를 구할 때, 범위 조건 자체는 작성할 수 있어도 <strong>조건을 검사한 다음 어떤 값을 언제 증가시켜야 하는지</strong>를 단계별로 연결하는 연습이 필요했습니다. 정답 코드를 한 번에 보는 대신, 각 줄이 왜 필요한지 확인하며 문제를 풀고 싶었습니다.</p></div><div class="record-field wide"><h4>내가 직접 한 일</h4><p>먼저 <code>if score &gt;= 60 and score &lt;= 90:</code>라는 조건식을 작성해 두 조건을 <code>and</code>로 연결했습니다. 다음 단계에서는 조건을 만족한 학생 수를 세기 위해 <code>count = count + 1</code>을 작성했고, 마지막 출력 단계에 <code>print(count)</code>를 적었습니다. 각 단계마다 내가 작성한 한 줄이 맞는지 확인을 요청하고, 정답을 미리 보지 않은 상태에서 다음 단계로 넘어갔습니다.</p></div><div class="record-field wide"><h4>AI의 도움과 내가 판단한 부분</h4><p>AI는 내가 작성한 조건식, 개수 누적식, 출력문을 각각 확인하고 맞는 이유를 설명했습니다. 나는 <strong>전체 완성 코드를 먼저 보여 주지 말고 한 단계씩 확인해 달라</strong>고 요청해 학습 방식을 정했습니다. 이 기록은 단계별 코드 작성과 피드백을 받은 과정이며, 독립적으로 모든 문제를 해결했다는 뜻은 아닙니다.</p></div><div class="record-field wide"><h4>다음에 확인할 것</h4><p><code>for</code>, <code>if</code>, <code>and</code>, <code>count</code>, <code>total</code>을 함께 사용하는 응용 문제를 힌트 없이 풀어보고, 조건을 통과한 항목의 개수와 값의 합계를 구분할 수 있는지 확인하려 합니다.</p></div><div class="record-field wide"><h4>배운 내용</h4><p>조건문과 반복문의 연결, <code>and</code>로 두 조건 표현하기, <code>count</code> 변수 누적, <code>print()</code> 출력의 기본 흐름을 연습했습니다.</p></div></div></div>
+<div class="topic-list"><span>#Python</span><span>#if</span><span>#for</span><span>#count</span></div>
+</div></article>
+<article class="timeline-item"><div class="timeline-card">
+<div class="timeline-heading"><h3 class="timeline-title">CPU 아키텍처와 OS: 서버를 직접 살펴보기</h3><span class="status progress">학습 중</span></div>
+<p class="learning-meta">주제: ARM64 · x86_64 · Linux 명령어</p>
+<p class="timeline-description">서버의 CPU 아키텍처와 운영체제를 확인하고, 명령어 출력 결과를 비교하며 문서로 정리하고 있습니다.</p>
+<div class="record-details"><div class="record-grid"><div class="record-field wide"><h4>고민했던 부분</h4><p>명령어를 실행해 출력값을 얻는 것과, 그 값이 실제로 의미하는 바를 설명하는 것은 달랐습니다. 특히 <code>aarch64</code>와 <code>x86_64</code>의 차이, CPU 코어와 논리 CPU의 관계, 운영체제 배포판과 커널의 관계가 헷갈렸습니다. 또한 <code>file</code>이나 <code>readelf</code>의 결과에서 실행 파일의 아키텍처를 어떻게 판단해야 하는지 궁금했습니다.</p></div><div class="record-field wide"><h4>내가 직접 한 일</h4><p>서버에 접속해 <code>uname -m</code>, <code>lscpu</code>, <code>nproc</code> 등으로 CPU 정보와 실행 환경을 살펴보았습니다. <code>file /bin/ls</code>, <code>readelf -h /bin/ls</code> 등을 통해 실행 파일 형식을 확인하고 출력 결과를 문서에 정리했습니다. ARM64 기반 Ubuntu 서버를 먼저 살펴본 뒤, x86_64 기반 Ubuntu 및 Rocky Linux 환경을 비교하면서 <strong>아키텍처 차이와 배포판 차이를 따로 설명하는 방식</strong>으로 정리했습니다.</p></div><div class="record-field wide"><h4>AI의 도움과 내가 판단한 부분</h4><p>CPU 아키텍처, SMT와 소프트웨어 스레드, 커널 선점, 가상 주소 등 이해되지 않는 개념을 질문하고 설명을 참고했습니다. 처음 살펴보는 서버는 명령어별 결과를 자세히 기록하되, 비교 대상 서버에서는 공통 설명을 반복하기보다 차이점에 집중하도록 문서 구성 방향을 정했습니다. 실제 출력과 개념 해석을 구분하려고 했습니다.</p></div><div class="record-field wide"><h4>다음에 확인할 것</h4><p>같은 x86_64 아키텍처라도 Ubuntu와 Rocky Linux에서 패키지 관리와 기본 설정이 어떻게 달라지는지 더 분명하게 비교하고, 실행 파일의 아키텍처 정보가 설치·실행 가능성과 어떻게 연결되는지 설명해 보려 합니다.</p></div><div class="record-field wide"><h4>배운 내용</h4><p>ARM64(AArch64)와 x86_64, Linux 배포판과 커널, CPU 정보 조회, ELF 실행 파일 확인 등의 기초를 학습했습니다.</p></div></div></div>
+<div class="topic-list"><span>#CPU</span><span>#Linux</span><span>#ARM64</span><span>#x86_64</span></div>
+</div></article>
+<article class="timeline-item"><div class="timeline-card">
+<div class="timeline-heading"><h3 class="timeline-title">네트워크와 Zero Trust: 기초부터 이어가는 공부</h3><span class="status progress">공부 중</span></div>
+<p class="timeline-description">IP 주소와 네트워크 통신의 기초를 익히고, 접근 제어와 Zero Trust를 공부하고 있습니다. 개념 학습과 직접 확인한 실습을 구분해 기록하려 합니다.</p>
+<div class="record-details"><div class="record-grid"><div class="record-field wide"><h4>고민했던 부분</h4><p>IP 주소, 네트워크 연결, 접근 제어처럼 따로 배우는 용어들이 실제 통신 과정에서 어떻게 이어지는지 이해하고 싶었습니다. 개념을 읽고 아는 것과 서버에서 직접 확인할 수 있는 내용을 구분하는 것도 중요하다고 생각했습니다.</p></div><div class="record-field wide"><h4>내가 직접 한 일</h4><p>IP, CIDR, 서버 접속과 관련된 기본 개념을 학습하고 <code>ping</code>, <code>ssh</code> 등의 명령어가 어떤 목적에 쓰이는지 살펴보았습니다. 네트워크의 기초를 먼저 이해한 뒤 Zero Trust의 접근 검증 개념과 연결해 정리하려고 했습니다.</p></div><div class="record-field wide"><h4>AI의 도움과 내가 판단한 부분</h4><p>낯선 네트워크 용어를 이해할 때 질문과 설명을 참고했습니다. 아직 실습 증거를 정리하지 않은 주제는 성공했다고 쓰지 않고, 현재 공부 중인 내용과 향후 확인할 항목으로 남기기로 했습니다.</p></div><div class="record-field wide"><h4>다음에 확인할 것</h4><p>접속 환경에서 실제로 실행한 명령어와 출력 결과를 따로 남기고, 네트워크 통신의 기본 흐름을 설명할 수 있는지 확인하려 합니다.</p></div><div class="record-field wide"><h4>배운 내용</h4><p>IP 주소와 CIDR, 기본적인 네트워크 접속 명령어, Zero Trust의 기본 개념을 공부하고 있습니다.</p></div></div></div>
+</div></article>
+</div>
+</div>
+</section>
+<section aria-labelledby="contact-title" class="contact-section" id="contact"><div class="container"><div class="contact-content">
+<span class="section-label">CONNECT</span><h2 id="contact-title">비슷한 고민을 나눠요</h2>
+<p>공부하다 막혔던 경험이나 저에게 해줄 조언, 함께 나누고 싶은 이야기가 있다면 편하게 연락해 주세요.</p>
+<div class="contact-buttons"><a class="btn btn-primary" href="mailto:goojji2003@gmail.com">이메일 보내기</a><a class="btn btn-outline" href="https://github.com/wjddncjf" rel="noopener noreferrer" target="_blank">GitHub 방문하기 (새 창)</a></div>
+</div></div></section>
+</main>
+<footer><p>© <span id="year">2026</span> 정우철 · 배우고, 질문하고, 함께 나눕니다.</p></footer>
+<script>
     document.getElementById('year').textContent = new Date().getFullYear();
     const header = document.querySelector('header');
     if (header && 'ResizeObserver' in window) {
